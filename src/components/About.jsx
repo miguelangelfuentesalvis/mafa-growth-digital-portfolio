@@ -88,7 +88,7 @@ const About = () => {
               </div>
               <div className="order-1 md:order-2">
                 <img 
-                  src="public/images/about-image-new.png" 
+                  src="/images/about-image-new.png" 
                   alt="Miguel Fuentes trabajando" 
                   className="rounded-lg shadow-lg w-full h-auto object-cover"
                 />
