@@ -28,7 +28,7 @@ const Footer = () => {
     },
     {
       icon: Mail,
-      href: 'mafagrowthdigital@gmail.com',
+      href: 'mailto:mafagrowthdigital@gmail.com',
       label: 'Email'
     },
     {
