@@ -118,7 +118,7 @@ const Footer = () => {
               <div>
                 <p className="text-sm font-medium text-foreground">Email</p>
                 <a
-                  href="mafagrowthdigital@gmail.com"
+                  href="mailto:mafagrowthdigital@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   mafagrowthdigital@gmail.com
