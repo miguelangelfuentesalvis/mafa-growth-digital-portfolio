@@ -14,41 +14,36 @@ import {
 const About = () => {
   const skills = [
     { name: 'HTML5', icon: Code, level: 95 },
-    { name: 'CSS3/TailwindCSS', icon: Code, level: 90 },
+    { name: 'CSS3 / Tailwind', icon: Code, level: 90 },
     { name: 'JavaScript (ES6+)', icon: Code, level: 85 },
     { name: 'React.js', icon: Code, level: 80 },
     { name: 'Node.js', icon: Database, level: 70 },
     { name: 'MySQL', icon: Database, level: 75 },
-    { name: 'Git/GitHub', icon: GitBranch, level: 85 },
+    { name: 'Git & Github', icon: GitBranch, level: 85 },
     { name: 'Marketing Digital', icon: TrendingUp, level: 90 },
     { name: 'Google Ads', icon: Target, level: 85 },
     { name: 'Analytics', icon: BarChart3, level: 80 }
   ];
 
-  const experience = [
+  const pillars = [
     {
-      title: 'Trafficker Digital',
-      company: 'Independiente',
-      period: 'Marzo 2021 - Abril 2023',
-      description: 'Gestión de campañas digitales, desarrollo de capacidad analítica y orientación a resultados.'
+      title: 'Performance con propósito',
+      description: 'Cada decisión parte de la data. Diseñamos funnels y experiencias para generar crecimiento sostenible.'
     },
     {
-      title: 'Desarrollador Web Front-End',
-      company: 'Funval Internacional',
-      period: 'Febrero - Mayo 2025',
-      description: 'Formación intensiva en desarrollo web con enfoque en React, Node.js y bases de datos.'
+      title: 'Tecnología centrada en personas',
+      description: 'Integraciones con IA que potencian a tu equipo: automatizaciones, asistentes y reportes accionables.'
     },
     {
-      title: 'Administrador Logístico',
-      company: 'DHL Supply Chain Chile',
-      period: 'Febrero 2017 - Septiembre 2019',
-      description: 'Coordinación de operaciones, organización y resolución de problemas en entorno de alta demanda.'
+      title: 'Diseño que inspira confianza',
+      description: 'Branding coherente, interfaces limpias y contenido estratégico para convertir visitas en clientes fieles.'
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#eef3ff] to-[#f7f9ff]" />
+      <div className="container relative mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,150 +51,124 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Sobre Mí
+          <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary shadow-sm">
+            Sobre mí
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-6">
+            Estratega digital y desarrollador obsesionado con los resultados
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Desarrollador Web Frontend con sólida experiencia en marketing digital
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-4">
+            Combino la visión de un trafficker digital con la ejecución de un desarrollador frontend. Los proyectos se construyen con procesos claros, automatizaciones inteligentes y métricas que importan.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Personal Info */}
+        <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-12 items-stretch">
+          {/* Historia y pilares */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="relative"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <h3 className="text-2xl font-semibold text-foreground mb-6">Mi Historia</h3>
-                <p className="text-lg text-muted-foreground mb-6">
-                  Soy un especialista en tecnologías emergentes que combina inteligencia artificial, 
-                  marketing digital avanzado y desarrollo web moderno. Me enfoco en crear soluciones 
-                  automatizadas que generan resultados medibles y escalables para los negocios.
-                </p>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Mi experiencia única en la intersección de IA, React Server Components, automatización 
-                  de marketing y análisis predictivo me permite ofrecer soluciones que están años 
-                  adelante de la competencia tradicional.
-                </p>
-              </div>
-              <div className="order-1 md:order-2">
-                <img 
-                  src="/images/about-image-new.png" 
-                  alt="Miguel Fuentes trabajando" 
-                  className="rounded-lg shadow-lg w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4 bg-card rounded-lg">
-                <Globe className="h-8 w-8 text-primary mx-auto mb-2" />
-                <p className="font-semibold">Frontend</p>
-                <p className="text-sm text-muted-foreground">Especialista</p>
-              </div>
-              <div className="text-center p-4 bg-card rounded-lg">
-                <TrendingUp className="h-8 w-8 text-accent mx-auto mb-2" />
-                <p className="font-semibold">Marketing</p>
-                <p className="text-sm text-muted-foreground">Digital</p>
+            <div className="relative overflow-hidden rounded-3xl bg-white p-10 shadow-xl border border-white/70">
+              <div className="absolute -top-20 -right-24 h-64 w-64 rounded-full bg-gradient-to-br from-[#190cff]/20 to-[#00b3ff]/10 blur-3xl" />
+              <div className="relative grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+                <div>
+                  <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Miguel Ángel Fuentes Alvis</h3>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    Más de cuatro años acompañando a marcas y emprendedores en su transformación digital. Diseñé procesos que integran tráfico pago, funnels, CRM y sitios web de alto rendimiento con stack moderno (React, Next.js, Node.js) y automatizaciones con IA.
+                  </p>
+                  <p className="text-muted-foreground text-base leading-relaxed mt-4">
+                    Hoy lidero equipos pequeños y ágiles donde el foco está en escalar resultados, no sólo entregar piezas. Me involucro desde la estrategia hasta la optimización continua.
+                  </p>
+
+                  <div className="mt-8 grid grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-[#190cff]/20 bg-primary/5 p-5">
+                      <Globe className="h-6 w-6 text-primary mb-3" />
+                      <p className="text-sm font-semibold text-foreground">Frontend Specialist</p>
+                      <p className="text-xs text-muted-foreground">UX + velocidad + SEO técnico</p>
+                    </div>
+                    <div className="rounded-2xl border border-[#0cf08f]/30 bg-[#0cf08f]/5 p-5">
+                      <TrendingUp className="h-6 w-6 text-[#0cf08f] mb-3" />
+                      <p className="text-sm font-semibold text-foreground">Marketing Performance</p>
+                      <p className="text-xs text-muted-foreground">Funnels, Ads y analítica</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="relative rounded-[2rem] overflow-hidden border border-white/80 shadow-lg">
+                    <img
+                      src="/images/about-image-new.png"
+                      alt="Miguel Fuentes trabajando"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-full max-w-xs rounded-2xl bg-white px-6 py-4 shadow-xl">
+                    <p className="text-xs uppercase tracking-[0.32em] text-muted-foreground">stack favorito</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {["React", "Next.js", "Tailwind", "Node.js", "GA4", "Make"].map((item) => (
+                        <span key={item} className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Skills */}
+          {/* Skills y pilares */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="space-y-10"
           >
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Habilidades Técnicas</h3>
-            <div className="space-y-4">
-              {skills.map((skill, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <skill.icon className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium">{skill.name}</span>
+            <div className="rounded-3xl border border-white/70 bg-white p-8 shadow-xl">
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-6">Habilidades clave</h3>
+              <div className="space-y-5">
+                {skills.map((skill, index) => (
+                  <div key={skill.name}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <skill.icon className="h-5 w-5 text-primary" />
+                        <span className="text-sm font-semibold text-foreground">{skill.name}</span>
+                      </div>
+                      <span className="text-sm font-semibold text-muted-foreground">{skill.level}%</span>
                     </div>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 0.8, delay: index * 0.05 }}
+                        viewport={{ once: true }}
+                        className="h-full rounded-full bg-gradient-to-r from-[#190cff] via-[#7200ff] to-[#00b3ff]"
+                      />
+                    </div>
                   </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="bg-primary h-2 rounded-full"
-                    />
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-white/70 bg-white p-8 shadow-xl">
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-6">Cómo trabajo</h3>
+              <div className="space-y-6">
+                {pillars.map((pillar) => (
+                  <div key={pillar.title} className="relative rounded-2xl border border-muted/80 bg-gradient-to-r from-white via-white to-[#f4f7ff] p-5">
+                    <div className="absolute -top-3 left-5 h-6 w-6 rounded-full bg-gradient-to-r from-[#190cff] to-[#7200ff]" />
+                    <div className="relative">
+                      <h4 className="text-lg font-semibold text-foreground">{pillar.title}</h4>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
-            Certificaciones
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-card p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
-              <img src="/images/trafficker-certificate.jpeg" alt="Certificado Trafficker Digital" className="w-full h-auto max-h-64 object-contain mb-4" />
-              <h4 className="text-lg font-semibold text-foreground mb-2">Máster Experto en Trafficker Digital</h4>
-              <p className="text-primary font-medium">Instituto de Tráfico Online</p>
-              <p className="text-sm text-muted-foreground">Expedido en Madrid, 15 de Marzo de 2021</p>
-            </div>
-            <div className="bg-card p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
-              <img src="/images/web-certificate.jpeg" alt="Certificado Desarrollador Web Frontend" className="w-full h-auto max-h-64 object-contain mb-4" />
-              <h4 className="text-lg font-semibold text-foreground mb-2">Técnico Desarrollador Web Front End</h4>
-              <p className="text-primary font-medium">FUNVAL Internacional</p>
-              <p className="text-sm text-muted-foreground">18 de Junio de 2025</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Experience Timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
-            Experiencia Profesional
-          </h3>
-          <div className="max-w-3xl mx-auto">
-            {experience.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="relative pl-8 pb-8 border-l-2 border-primary/20 last:border-l-0"
-              >
-                <div className="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"></div>
-                <div className="bg-card p-6 rounded-lg shadow-sm">
-                  <h4 className="text-lg font-semibold text-foreground">{exp.title}</h4>
-                  <p className="text-primary font-medium">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground mb-3">{exp.period}</p>
-                  <p className="text-muted-foreground">{exp.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

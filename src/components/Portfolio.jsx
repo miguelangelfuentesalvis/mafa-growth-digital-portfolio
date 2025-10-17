@@ -9,61 +9,42 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: 'Mi Portafolio Personal',
-      description: 'Sitio web personal desarrollado con HTML, CSS y JavaScript, mostrando mis habilidades y proyectos.',
+      title: 'Launch ecommerce eco-friendly',
+      description: 'Rediseño de marca, tienda online headless y funnel de adquisición omnicanal. Se integró CRM, automatización de correos y publicidad pagada en Meta + Google.',
       image: '/src/assets/portfolio-web-dev.jpg',
       category: 'web',
-      technologies: ['HTML5', 'CSS3', 'JavaScript'],
-      liveUrl: 'https://miguelangelfuentesalvis.github.io/mp-miguel-fuentes/',
-      githubUrl: 'https://github.com/miguelangelfuentesalvis/mp-miguel-fuentes',
+      technologies: ['Next.js', 'Shopify', 'Meta Ads', 'Klaviyo'],
+      results: ['+312% ROI', '3.2x tasa de conversión', 'Automatizaciones IA para atención'],
       featured: true
     },
     {
       id: 2,
-      title: 'Campaña E-commerce con IA',
-      description: 'Gestión completa de campaña publicitaria para tienda online, optimizada con IA para un ROI del 300%.',
+      title: 'Fintech B2B inbound machine',
+      description: 'Desarrollo de sitio corporativo, materiales de apoyo y pipeline automatizado para captar leads calificados en LATAM.',
       image: '/src/assets/portfolio-marketing.jpg',
       category: 'marketing',
-      technologies: ['Google Ads', 'Facebook Ads', 'IA', 'Analytics'],
-      results: '+300% ROI, +150% Conversiones',
+      technologies: ['HubSpot', 'Make', 'LinkedIn Ads', 'GA4'],
+      results: ['+148% leads SQL', '-35% CPL', 'Nurturing automatizado'],
       featured: true
     },
     {
       id: 3,
-      title: 'Landing Page Corporativa Avanzada',
-      description: 'Desarrollo de landing page optimizada para conversión con diseño responsivo y micro-interacciones IA.',
+      title: 'Landing con agenda automática',
+      description: 'Landing page minimalista con storytelling, formulario calificador y agenda sincronizada con calendly + CRM.',
       image: '/src/assets/portfolio-web-dev.jpg',
       category: 'web',
-      technologies: ['React', 'TailwindCSS', 'Framer Motion', 'IA'],
+      technologies: ['React', 'Tailwind', 'Calendly', 'Make'],
+      results: ['70% tasa de cierre en demos', 'PageSpeed 96/100'],
       featured: false
     },
     {
       id: 4,
-      title: 'Optimización de Conversiones con ML',
-      description: 'Análisis y optimización de funnel de ventas, mejorando la tasa de conversión en 85% con Machine Learning.',
+      title: 'Programa educativo evergreen',
+      description: 'Funnel evergreen con webinars automatizados, secuencias de email y optimización de anuncios con creatividades dinámicas.',
       image: '/src/assets/portfolio-marketing.jpg',
       category: 'marketing',
-      technologies: ['Google Analytics', 'Hotjar', 'A/B Testing', 'Machine Learning'],
-      results: '+85% Tasa de Conversión',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'App Web React con RSC',
-      description: 'Aplicación web interactiva desarrollada con React Server Components y integración de APIs.',
-      image: '/src/assets/portfolio-web-dev.jpg',
-      category: 'web',
-      technologies: ['React', 'Next.js', 'Node.js', 'MySQL', 'RSC'],
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Estrategia Multi-canal Automatizada',
-      description: 'Implementación de estrategia de marketing digital en múltiples canales con automatización IA.',
-      image: '/src/assets/portfolio-marketing.jpg',
-      category: 'marketing',
-      technologies: ['Google Ads', 'Facebook', 'Email Marketing', 'Automatización IA'],
-      results: '+200% Alcance, +120% Leads',
+      technologies: ['Meta Ads', 'YouTube Ads', 'ActiveCampaign', 'Notion'],
+      results: ['+4200 leads', '+185% en ventas recurrentes'],
       featured: false
     }
   ];
@@ -79,8 +60,9 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="portfolio" className="relative py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#eef2ff] via-[#f6f9ff] to-white" />
+      <div className="container relative mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,11 +70,14 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Mi Portafolio
+          <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary shadow-sm">
+            Casos de éxito
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-6">
+            Resultados tangibles para marcas que apuestan por crecer
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Proyectos que demuestran mi experiencia en desarrollo web y marketing digital
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-4">
+            Proyectos 360° que combinan estrategia, diseño y tecnología. Desde lanzamientos de e-commerce hasta funnels automatizados para empresas B2B.
           </p>
         </motion.div>
 
@@ -107,9 +92,13 @@ const Portfolio = () => {
           {filters.map((filter) => (
             <Button
               key={filter.id}
-              variant={activeFilter === filter.id ? "default" : "outline"}
+              variant="outline"
               onClick={() => setActiveFilter(filter.id)}
-              className="flex items-center space-x-2"
+              className={`flex items-center space-x-2 rounded-full border-2 px-5 py-2 text-sm font-semibold transition-all ${
+                activeFilter === filter.id
+                  ? 'border-transparent bg-gradient-to-r from-[#190cff] via-[#7200ff] to-[#00b3ff] text-white shadow-lg'
+                  : 'border-primary/20 text-primary hover:bg-primary/10'
+              }`}
             >
               <filter.icon className="h-4 w-4" />
               <span>{filter.label}</span>
@@ -118,7 +107,7 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -126,62 +115,61 @@ const Portfolio = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
-                project.featured ? 'md:col-span-2 lg:col-span-1' : ''
+              className={`relative overflow-hidden rounded-[2rem] border border-white/70 bg-white shadow-xl transition-transform duration-300 hover:-translate-y-3 ${
+                project.featured ? 'md:col-span-2' : ''
               }`}
             >
-              {/* Project Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                {project.category === 'web' ? (
-                  <Code className="h-16 w-16 text-primary/60" />
-                ) : (
-                  <TrendingUp className="h-16 w-16 text-accent/60" />
-                )}
+              <div className="absolute inset-0">
+                <img src={project.image} alt={project.title} className="h-full w-full object-cover opacity-20" />
               </div>
-
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-white/80" />
+              <div className="relative p-10">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+                      {project.category === 'web' ? 'Desarrollo' : 'Marketing'}
+                    </span>
+                    <h3 className="mt-4 text-2xl font-semibold text-foreground">{project.title}</h3>
+                  </div>
                   {project.featured && (
-                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
-                      Destacado
+                    <span className="rounded-full bg-gradient-to-r from-[#190cff] to-[#00b3ff] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-lg">
+                      Top
                     </span>
                   )}
                 </div>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{project.description}</p>
 
-                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
-                    >
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="rounded-full border border-primary/20 bg-white px-3 py-1 text-xs font-semibold text-primary">
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Results (for marketing projects) */}
                 {project.results && (
-                  <div className="mb-4 p-3 bg-accent/10 rounded-lg">
-                    <p className="text-sm font-medium text-accent">Resultados:</p>
-                    <p className="text-sm text-foreground">{project.results}</p>
+                  <div className="mt-6 rounded-2xl border border-[#0cf08f]/30 bg-[#0cf08f]/5 p-5">
+                    <p className="text-xs uppercase tracking-[0.32em] text-[#0b9e68]">Impacto</p>
+                    <ul className="mt-3 space-y-2 text-sm text-foreground">
+                      {project.results.map((result) => (
+                        <li key={result} className="flex items-start gap-2">
+                          <span className="mt-1 h-2 w-2 rounded-full bg-[#0cf08f]" />
+                          {result}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
 
-                {/* Action Buttons */}
-                <div className="flex space-x-2">
+                <div className="mt-8 flex flex-wrap gap-3">
                   {project.liveUrl && (
                     <Button
                       size="sm"
-                      variant="outline"
                       onClick={() => window.open(project.liveUrl, '_blank')}
-                      className="flex items-center space-x-1"
+                      className="bg-gradient-to-r from-[#190cff] via-[#7200ff] to-[#00b3ff] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-md hover:opacity-90"
                     >
                       <ExternalLink className="h-3 w-3" />
-                      <span>Ver Sitio</span>
+                      Ver proyecto
                     </Button>
                   )}
                   {project.githubUrl && (
@@ -189,10 +177,10 @@ const Portfolio = () => {
                       size="sm"
                       variant="outline"
                       onClick={() => window.open(project.githubUrl, '_blank')}
-                      className="flex items-center space-x-1"
+                      className="border-primary text-primary hover:bg-primary/10"
                     >
                       <Github className="h-3 w-3" />
-                      <span>Código</span>
+                      Repositorio
                     </Button>
                   )}
                 </div>
@@ -209,21 +197,23 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-muted-foreground mb-6">
-            ¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte.
-          </p>
-          <Button
-            size="lg"
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            className="bg-primary hover:bg-primary/90"
-          >
-            Iniciar Proyecto
-          </Button>
+          <div className="mx-auto max-w-3xl rounded-[2.5rem] border border-white/60 bg-white p-12 shadow-xl">
+            <p className="text-lg text-muted-foreground">
+              ¿Listo para construir algo a la altura de tu marca? Diseñemos juntos un plan que acelere tus resultados.
+            </p>
+            <Button
+              size="lg"
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="mt-8 bg-gradient-to-r from-[#190cff] via-[#7200ff] to-[#00b3ff] px-10 py-6 text-base font-semibold text-white shadow-lg hover:opacity-90"
+            >
+              Reservar sesión estratégica
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -54,26 +54,31 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card border-t">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-4">
-              <img src="/images/mafalogo-1.png" alt="Mafa Growth Digital" className="h-16 w-auto" />
+    <footer className="relative overflow-hidden bg-gradient-to-b from-white via-[#eef2ff] to-[#dde6ff]">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-gradient-to-br from-[#190cff]/20 via-[#7200ff]/15 to-[#00b3ff]/15 blur-3xl" />
+      </div>
+      <div className="relative container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <img src="/images/mafalogo-1.png" alt="Mafa Growth Digital" className="h-14 w-auto" />
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-primary">Mafa Growth Digital</span>
+                <p className="text-xs text-muted-foreground">Marketing · Desarrollo · Automatización</p>
+              </div>
             </div>
-            <p className="text-muted-foreground text-sm mb-6">
-              Impulso tu negocio con soluciones digitales que generan resultados. 
-              Combino desarrollo web y marketing digital para crear experiencias que convierten.
+            <p className="max-w-md text-sm text-muted-foreground leading-relaxed">
+              Diseñamos ecosistemas digitales que conectan estrategia, creatividad y tecnología para marcas que quieren crecer con propósito. IA + data + ejecución impecable.
             </p>
-            <div className="flex space-x-3">
+            <div className="flex flex-wrap gap-3">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg flex items-center justify-center transition-colors"
+                  className="group flex h-11 w-11 items-center justify-center rounded-xl bg-white/70 text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-gradient-to-br hover:from-[#190cff] hover:via-[#7200ff] hover:to-[#00b3ff] hover:text-white"
                   aria-label={social.label}
                 >
                   <social.icon className="h-4 w-4" />
@@ -82,16 +87,16 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Enlaces Rápidos</h3>
-            <ul className="space-y-2">
+            <h3 className="font-display text-sm uppercase tracking-[0.32em] text-foreground">Enlaces rápidos</h3>
+            <ul className="mt-6 space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                   >
+                    <span className="h-1 w-1 rounded-full bg-primary/40 transition-transform group-hover:scale-150" />
                     {link.label}
                   </button>
                 </li>
@@ -99,69 +104,57 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Servicios</h3>
-            <ul className="space-y-2">
+            <h3 className="font-display text-sm uppercase tracking-[0.32em] text-foreground">Servicios</h3>
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
               {services.map((service, index) => (
-                <li key={index}>
-                  <span className="text-muted-foreground text-sm">{service}</span>
+                <li key={index} className="flex items-center gap-2">
+                  <span className="h-1 w-1 rounded-full bg-primary/40" />
+                  {service}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Contacto</h3>
-            <div className="space-y-3">
+          <div className="rounded-3xl border border-white/60 bg-white p-8 shadow-xl">
+            <h3 className="font-display text-sm uppercase tracking-[0.32em] text-foreground">Contacto</h3>
+            <div className="mt-6 space-y-4 text-sm text-muted-foreground">
               <div>
-                <p className="text-sm font-medium text-foreground">Email</p>
+                <p className="text-xs uppercase tracking-[0.32em] text-primary">Email</p>
                 <a
                   href="mailto:mafagrowthdigital@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="mt-1 block font-semibold text-foreground transition-colors hover:text-primary"
                 >
                   mafagrowthdigital@gmail.com
                 </a>
               </div>
               <div>
-                <p className="text-sm font-medium text-foreground">Teléfono</p>
+                <p className="text-xs uppercase tracking-[0.32em] text-primary">Teléfono</p>
                 <a
                   href="tel:+56940156689"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="mt-1 block font-semibold text-foreground transition-colors hover:text-primary"
                 >
                   +56 9 4015 6689
                 </a>
               </div>
               <div>
-                <p className="text-sm font-medium text-foreground">Ubicación</p>
-                <p className="text-muted-foreground text-sm">Chile</p>
+                <p className="text-xs uppercase tracking-[0.32em] text-primary">Ubicación</p>
+                <p className="mt-1 font-semibold text-foreground">Chile</p>
               </div>
             </div>
+            <Button
+              onClick={scrollToTop}
+              className="mt-8 w-full bg-gradient-to-r from-[#190cff] via-[#7200ff] to-[#00b3ff] text-white shadow-lg hover:opacity-90"
+            >
+              <ArrowUp className="mr-2 h-4 w-4" />
+              Volver arriba
+            </Button>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Mafa Growth Digital. Todos los derechos reservados.
-            </p>
-            <p className="text-muted-foreground text-xs mt-1">
-              Desarrollado con ❤️ por Miguel Ángel Fuentes Alvis
-            </p>
-          </div>
-
-          {/* Back to Top Button */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={scrollToTop}
-            className="flex items-center space-x-2"
-          >
-            <ArrowUp className="h-4 w-4" />
-            <span>Volver Arriba</span>
-          </Button>
+        <div className="mt-16 flex flex-col gap-4 border-t border-white/60 pt-8 text-center text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} Mafa Growth Digital. Todos los derechos reservados.</p>
+          <p className="text-xs">Diseñado y desarrollado por Miguel Ángel Fuentes Alvis</p>
         </div>
       </div>
     </footer>
