@@ -10,7 +10,6 @@ import {
   MessageCircle,
   CheckCircle
 } from 'lucide-react';
-import SocialLinks from './SocialLinks';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -82,53 +81,56 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="relative py-24">
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-[#eef3ff] to-[#dfe9ff]" />
+      <div className="container relative mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Hablemos de tu Proyecto
+          <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary shadow-sm">
+            Contacto
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-6">
+            Conversemos sobre el próximo gran paso de tu marca
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            ¿Listo para impulsar tu negocio? Contáctame y trabajemos juntos
+          <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Agenda una reunión o escríbeme directamente. Respondo en menos de 24 horas y puedo ayudarte a priorizar el roadmap ideal para tu negocio.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-card p-8 rounded-lg shadow-sm">
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
-                Envíame un Mensaje
+            <div className="rounded-[2rem] border border-white/70 bg-white p-10 shadow-xl">
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-6">
+                Envíame un mensaje
               </h3>
 
               {isSubmitted && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-accent/10 border border-accent/20 rounded-lg flex items-center space-x-2"
+                  className="mb-6 flex items-center space-x-2 rounded-2xl border border-[#0cf08f]/30 bg-[#0cf08f]/10 p-4"
                 >
-                  <CheckCircle className="h-5 w-5 text-accent" />
-                  <p className="text-accent font-medium">
+                  <CheckCircle className="h-5 w-5 text-[#0b9e68]" />
+                  <p className="font-medium text-[#0b9e68]">
                     ¡Mensaje enviado exitosamente! Te contactaré pronto.
                   </p>
                 </motion.div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
                       Nombre *
                     </label>
                     <input
@@ -138,12 +140,12 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="Tu nombre"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
                       Email *
                     </label>
                     <input
@@ -153,22 +155,22 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="tu@email.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
-                    Servicio de Interés
+                  <label htmlFor="service" className="mb-2 block text-sm font-medium text-foreground">
+                    Servicio de interés
                   </label>
                   <select
                     id="service"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option value="">Selecciona un servicio</option>
                     {services.map((service, index) => (
@@ -180,7 +182,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
                     Mensaje *
                   </label>
                   <textarea
@@ -190,7 +192,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                    className="w-full resize-none rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="Cuéntame sobre tu proyecto..."
                   />
                 </div>
@@ -198,17 +200,17 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-[#190cff] via-[#7200ff] to-[#00b3ff] py-6 text-base font-semibold text-white shadow-lg hover:opacity-90 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center space-x-2">
-                      <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
+                      <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
                       <span>Enviando...</span>
                     </div>
                   ) : (
                     <div className="flex items-center space-x-2">
                       <Send className="h-4 w-4" />
-                      <span>Enviar Mensaje</span>
+                      <span>Enviar mensaje</span>
                     </div>
                   )}
                 </Button>
@@ -216,7 +218,6 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -224,9 +225,9 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
-                Información de Contacto
+            <div className="rounded-[2rem] border border-white/70 bg-white p-10 shadow-xl">
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-6">
+                Información de contacto
               </h3>
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
@@ -236,22 +237,22 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4 p-4 bg-card rounded-lg"
+                    className="flex items-center space-x-4 rounded-2xl border border-muted/60 bg-gradient-to-r from-white via-white to-[#f5f7ff] p-5"
                   >
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <info.icon className="h-6 w-6 text-primary" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#190cff] to-[#00b3ff] text-white">
+                      <info.icon className="h-6 w-6" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">{info.title}</p>
+                      <p className="text-sm font-semibold text-foreground">{info.title}</p>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="text-muted-foreground hover:text-primary transition-colors"
+                          className="text-sm text-primary hover:underline"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground">{info.value}</p>
+                        <p className="text-sm text-muted-foreground">{info.value}</p>
                       )}
                     </div>
                   </motion.div>
@@ -259,46 +260,32 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Quick Response Promise */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-accent/10 p-6 rounded-lg border border-accent/20"
+              className="rounded-[2rem] border border-white/70 bg-white p-10 shadow-xl"
             >
-              <div className="flex items-center space-x-3 mb-3">
-                <MessageCircle className="h-6 w-6 text-accent" />
-                <h4 className="font-semibold text-foreground">Respuesta Rápida</h4>
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0cf08f]/15 text-[#0b9e68]">
+                  <MessageCircle className="h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-foreground">Respuesta rápida</h4>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Me comprometo a responder todos los mensajes en menos de 24 horas. Para urgencias puedes escribirme directo a WhatsApp y agendamos una llamada express.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => window.open('tel:+56940156689', '_self')}
+                    className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
+                    Llamar ahora
+                  </Button>
+                </div>
               </div>
-              <p className="text-muted-foreground text-sm">
-                Me comprometo a responder todos los mensajes en un plazo máximo de 24 horas. 
-                Para proyectos urgentes, no dudes en llamarme directamente.
-              </p>
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center p-6 bg-primary/5 rounded-lg border border-primary/10"
-            >
-              <h4 className="font-semibold text-foreground mb-2">
-                ¿Prefieres una llamada?
-              </h4>
-              <p className="text-muted-foreground text-sm mb-4">
-                Agenda una consulta gratuita de 30 minutos para discutir tu proyecto
-              </p>
-              <Button
-                variant="outline"
-                onClick={() => window.open('tel:+56940156689', '_self')}
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              >
-                <Phone className="h-4 w-4 mr-2" />
-                Llamar Ahora
-              </Button>
             </motion.div>
           </motion.div>
         </div>

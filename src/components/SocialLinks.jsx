@@ -39,13 +39,13 @@ const SocialLinks = ({ className = "" }) => {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 p-3 bg-card hover:bg-accent rounded-lg transition-all duration-300 hover:scale-105"
+            className="group flex items-center gap-2 rounded-xl bg-white/80 p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-gradient-to-r hover:from-[#190cff] hover:via-[#7200ff] hover:to-[#00b3ff]"
             title={`${social.name} - ${social.followers} seguidores`}
           >
-            <IconComponent className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+            <IconComponent className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-white" />
             <div className="hidden sm:block">
-              <div className="text-sm font-medium text-foreground">{social.name}</div>
-              <div className="text-xs text-muted-foreground">{social.followers} seguidores</div>
+              <div className="text-sm font-semibold text-foreground transition-colors group-hover:text-white">{social.name}</div>
+              <div className="text-xs text-muted-foreground transition-colors group-hover:text-white/80">{social.followers} seguidores</div>
             </div>
           </a>
         );

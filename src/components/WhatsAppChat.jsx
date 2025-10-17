@@ -24,7 +24,7 @@ const WhatsAppChat = () => {
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          className="rounded-full bg-gradient-to-br from-[#0cf08f] via-[#00b3ff] to-[#190cff] p-4 text-white shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl"
           aria-label="Abrir chat de WhatsApp"
         >
           <MessageCircle className="h-6 w-6" />
@@ -39,12 +39,12 @@ const WhatsAppChat = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-24 right-6 z-50 w-80 bg-white rounded-lg shadow-2xl overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-80 overflow-hidden rounded-3xl bg-white shadow-2xl"
           >
             {/* Header */}
-            <div className="bg-green-500 text-white p-4 flex items-center justify-between">
+            <div className="flex items-center justify-between bg-gradient-to-r from-[#0cf08f] via-[#00b3ff] to-[#190cff] p-4 text-white">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
                   <MessageCircle className="h-5 w-5" />
                 </div>
                 <div>
@@ -61,26 +61,26 @@ const WhatsAppChat = () => {
             </div>
 
             {/* Chat Content */}
-            <div className="p-4 bg-gray-50 min-h-[200px]">
+            <div className="min-h-[200px] bg-[#f4f8ff] p-4">
               <div className="space-y-3">
                 {/* Bot Message */}
                 <div className="flex items-start space-x-2">
-                  <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0cf08f] to-[#00b3ff]">
                     <MessageCircle className="h-4 w-4 text-white" />
                   </div>
-                  <div className="bg-white p-3 rounded-lg shadow-sm max-w-[220px]">
-                    <p className="text-sm text-gray-800">
+                  <div className="max-w-[220px] rounded-2xl bg-white p-3 text-sm text-gray-800 shadow-sm">
+                    <p>
                       ¡Hola! 👋 Soy Miguel de Mafa Growth Digital.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-2">
-                  <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0cf08f] to-[#00b3ff]">
                     <MessageCircle className="h-4 w-4 text-white" />
                   </div>
-                  <div className="bg-white p-3 rounded-lg shadow-sm max-w-[220px]">
-                    <p className="text-sm text-gray-800">
+                  <div className="max-w-[220px] rounded-2xl bg-white p-3 text-sm text-gray-800 shadow-sm">
+                    <p>
                       ¿En qué puedo ayudarte hoy? Especializo en desarrollo web y marketing digital con IA.
                     </p>
                   </div>
@@ -88,22 +88,22 @@ const WhatsAppChat = () => {
 
                 {/* Quick Actions */}
                 <div className="space-y-2 mt-4">
-                  <p className="text-xs text-gray-500 font-medium">Respuestas rápidas:</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary/80">Respuestas rápidas</p>
                   <button
                     onClick={handleWhatsAppClick}
-                    className="w-full text-left p-2 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors text-sm text-gray-700"
+                    className="w-full rounded-xl bg-white p-2 text-left text-sm text-gray-700 shadow-sm transition-colors hover:bg-primary/5"
                   >
                     💻 Desarrollo Web Frontend
                   </button>
                   <button
                     onClick={handleWhatsAppClick}
-                    className="w-full text-left p-2 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors text-sm text-gray-700"
+                    className="w-full rounded-xl bg-white p-2 text-left text-sm text-gray-700 shadow-sm transition-colors hover:bg-primary/5"
                   >
                     📈 Marketing Digital & IA
                   </button>
                   <button
                     onClick={handleWhatsAppClick}
-                    className="w-full text-left p-2 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors text-sm text-gray-700"
+                    className="w-full rounded-xl bg-white p-2 text-left text-sm text-gray-700 shadow-sm transition-colors hover:bg-primary/5"
                   >
                     🚀 Consultoría Digital
                   </button>
@@ -112,16 +112,16 @@ const WhatsAppChat = () => {
             </div>
 
             {/* Footer */}
-            <div className="p-4 bg-white border-t">
+            <div className="border-t border-primary/10 bg-white p-4">
               <button
                 onClick={handleWhatsAppClick}
-                className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center space-x-2"
+                className="flex w-full items-center justify-center space-x-2 rounded-xl bg-gradient-to-br from-[#0cf08f] via-[#00b3ff] to-[#190cff] px-4 py-2 text-white shadow-lg transition-all hover:opacity-90"
               >
                 <MessageCircle className="h-4 w-4" />
                 <span>Iniciar conversación</span>
               </button>
-              <p className="text-xs text-gray-500 text-center mt-2">
-                Respuesta típica en menos de 1 hora
+              <p className="mt-2 text-center text-xs text-muted-foreground">
+                Respuesta habitual en menos de 1 hora
               </p>
             </div>
           </motion.div>
